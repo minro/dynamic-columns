@@ -32,10 +32,18 @@
 			width: calc((100 / var(--fr)) * 1%);
 			box-shadow: inset 0 0 0 3px black;
 			background-color: rgba(var(--color), 1);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: 600;
+			font-size: 18px;
+			font-family: sans-serif;
+			color: white;
 		}
 
 		.box:hover {
 			background-color: rgba(var(--color), 0.5);
+			color: black;
 		}
 
 		.contained {
@@ -59,26 +67,26 @@
 </head>
 <body>
 	<div class="container">
-		<div class="box" style="--fr: 1; --color: 149, 214, 141;"></div>		
-		<div class="box contained" style="--fr: 1; --color: 149, 214, 141;"></div>		
-		<div class="box contained" style="--fr: 2; --color: 115, 170, 195;"></div>		
-		<div class="box contained" style="--fr: 2; --color: 115, 170, 195;"></div>
-		<div class="box" style="--fr: 2; --color: 115, 170, 195;"></div>		
-		<div class="box" style="--fr: 2; --color: 115, 170, 195;"></div>		
-		<div class="box contained" style="--fr: 3; --color: 236, 166, 166;"></div>		
-		<div class="box contained" style="--fr: 3; --color: 236, 166, 166;"></div>		
-		<div class="box contained" style="--fr: 3; --color: 236, 166, 166;"></div>		
-		<div class="box" style="--fr: 3; --color: 236, 166, 166;"></div>		
-		<div class="box" style="--fr: 3; --color: 236, 166, 166;"></div>		
-		<div class="box" style="--fr: 3; --color: 236, 166, 166;"></div>		
-		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;"></div>		
-		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;"></div>		
-		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;"></div>		
-		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;"></div>		
-		<div class="box" style="--fr: 4; --color: 149, 214, 141;"></div>		
-		<div class="box" style="--fr: 4; --color: 149, 214, 141;"></div>		
-		<div class="box" style="--fr: 4; --color: 149, 214, 141;"></div>		
-		<div class="box" style="--fr: 4; --color: 149, 214, 141;"></div>		
+		<div class="box" style="--fr: 1; --color: 149, 214, 141;">Full</div>		
+		<div class="box contained" style="--fr: 1; --color: 149, 214, 141;">Contained</div>		
+		<div class="box contained" style="--fr: 2; --color: 115, 170, 195;">Contained</div>		
+		<div class="box contained" style="--fr: 2; --color: 115, 170, 195;">Contained</div>
+		<div class="box" style="--fr: 2; --color: 115, 170, 195;">Full</div>		
+		<div class="box" style="--fr: 2; --color: 115, 170, 195;">Full</div>		
+		<div class="box contained" style="--fr: 3; --color: 236, 166, 166;">Contained</div>		
+		<div class="box contained" style="--fr: 3; --color: 236, 166, 166;">Contained</div>		
+		<div class="box contained" style="--fr: 3; --color: 236, 166, 166;">Contained</div>		
+		<div class="box" style="--fr: 3; --color: 236, 166, 166;">Full</div>		
+		<div class="box" style="--fr: 3; --color: 236, 166, 166;">Full</div>		
+		<div class="box" style="--fr: 3; --color: 236, 166, 166;">Full</div>		
+		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;">Contained</div>		
+		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;">Contained</div>		
+		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;">Contained</div>		
+		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;">Contained</div>		
+		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>		
+		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>		
+		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>		
+		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>		
 	</div>
 </body>
 </html>
