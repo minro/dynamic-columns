@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		:root {
+			--margin: 5;
+			--fr: 1;
+			--color: 255, 255, 255;
+		}
+
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			background-color: rgb(var(--color));
+		}	
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+			justify-content: center;
+		}
+
+		.box {
+			height: 500px;
+			width: calc((100 / var(--fr)) * 1%);
+			box-shadow: inset 0 0 0 3px black;
+			background-color: rgba(var(--color), 0.5);
+		}
+
+		.wide {
+			width: calc(((100 / var(--fr)) * 1%) - ((var(--margin)) / (var(--fr) / 2)) * 1%);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box" style="--fr: 1; --color: 149, 214, 141;"></div>		
+		<div class="box wide" style="--fr: 2; --color: 115, 170, 195;"></div>		
+		<div class="box wide" style="--fr: 2; --color: 115, 170, 195;"></div>
+		<div class="box" style="--fr: 2; --color: 115, 170, 195;"></div>		
+		<div class="box" style="--fr: 2; --color: 115, 170, 195;"></div>		
+		<div class="box" style="--fr: 3; --color: 236, 166, 166;"></div>		
+		<div class="box" style="--fr: 3; --color: 236, 166, 166;"></div>		
+		<div class="box" style="--fr: 3; --color: 236, 166, 166;"></div>		
+		<div class="box wide" style="--fr: 3; --color: 236, 166, 166;"></div>		
+		<div class="box wide" style="--fr: 3; --color: 236, 166, 166;"></div>		
+		<div class="box wide" style="--fr: 3; --color: 236, 166, 166;"></div>		
+		<div class="box wide" style="--fr: 4; --color: 149, 214, 141;"></div>		
+		<div class="box wide" style="--fr: 4; --color: 149, 214, 141;"></div>		
+		<div class="box wide" style="--fr: 4; --color: 149, 214, 141;"></div>		
+		<div class="box wide" style="--fr: 4; --color: 149, 214, 141;"></div>		
+	</div>
+</body>
+</html>
