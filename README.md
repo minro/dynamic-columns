@@ -1,7 +1,7 @@
 # dynamic-columns
 Given a set of items, add the correct outside "margin"
 
-*--fr makes it work. --color is only to destinguish the type of rows from eachother.*
+*frX-classes makes it work. --color is only to destinguish the type of rows from eachother.*
 
 There are two versions, in index.html and indexjs.html, one has a script tag and the other one is only html.
 
