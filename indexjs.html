@@ -89,11 +89,16 @@
                 { type: "wrapped", fraction: 1, content: "Wrapped", color: "149, 214, 141" },
                 { type: "constrained", fraction: 1, content: "Constrained", color: "149, 214, 141" },
                 { type: "", fraction: 2, content: "Full", color: "115, 170, 195" },
-                { type: "", fraction: 2, content: "Full", color: "115, 170, 195" },
+                { type: "", fraction: 4, content: "Full", color: "115, 170, 195" },
+                { type: "", fraction: 4, content: "Full", color: "115, 170, 195" },
                 { type: "wrapped", fraction: 2, content: "Wrapped", color: "115, 170, 195" },
-                { type: "wrapped", fraction: 2, content: "Wrapped", color: "115, 170, 195" },
+                { type: "wrapped", fraction: 4, content: "Wrapped", color: "115, 170, 195" },
+                { type: "wrapped", fraction: 4, content: "Wrapped", color: "115, 170, 195" },
                 { type: "constrained", fraction: 2, content: "Constrained", color: "115, 170, 195" },
-                { type: "constrained", fraction: 2, content: "Constrained", color: "115, 170, 195" },
+                { type: "constrained", fraction: 4, content: "Constrained", color: "115, 170, 195" },
+                { type: "constrained", fraction: 8, content: "Constrained", color: "115, 170, 195" },
+                { type: "constrained", fraction: 16, content: "Constrained", color: "115, 170, 195" },
+                { type: "constrained", fraction: 16, content: "Constrained", color: "115, 170, 195" },
                 { type: "", fraction: 3, content: "Full", color: "236, 166, 166" },
                 { type: "", fraction: 3, content: "Full", color: "236, 166, 166" },
                 { type: "", fraction: 3, content: "Full", color: "236, 166, 166" },
@@ -120,15 +125,10 @@
             render = () => {
                 const container = document.querySelector(".container");
 
-                let wrapper;
-                let wrapperCounter = 0;
+                let wrapper = document.createElement("div");
+                wrapper.classList.add("box");
 
                 items.map((item) => {
-                    if (wrapperCounter === 0) {
-                        wrapper = document.createElement("div");
-                        wrapper.classList.add("box");
-                    }
-
                     let el = document.createElement("div");
                     el.classList.add("box");
                     item.type !== "" ? el.classList.add(item.type) : null;
@@ -136,16 +136,15 @@
                     el.innerHTML = item.content;
 
                     if (item.type !== "wrapped") {
+                        if (wrapper.classList.contains("contains")) {
+                            container.append(wrapper)
+                            wrapper = document.createElement("div");
+                            wrapper.classList.add("box");
+                        }
                         container.append(el);
                     } else {
+                        wrapper.classList.contains("contains") ? null : wrapper.classList.add("contains");
                         wrapper.append(el);
-                        wrapperCounter++;
-
-                        if (wrapperCounter === item.fraction) {
-                            wrapper.classList.add("contains");
-                            container.append(wrapper);
-                            wrapperCounter = 0;
-                        }
                     }
                 });
             }
