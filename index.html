@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +23,7 @@
 			/* With site-wide padding*/
 			/* padding: 30px; */
 			background-color: rgb(var(--color));
-		}	
+		}
 
 		.container {
 			display: flex;
@@ -32,7 +33,7 @@
 		}
 
 		.box {
-			height: 500px;
+			height: 250px;
 			width: calc((100 / var(--fr)) * 1%);
 			box-shadow: inset 0 0 0 3px black;
 			background-color: rgba(var(--color), 1);
@@ -50,7 +51,12 @@
 			color: black;
 		}
 
-		.contained {
+		.box.contains {
+			--color: 0, 0, 0;
+		}
+
+		.contained,
+		.margined {
 			width: calc(((100 / var(--fr)) * 1%) - ((var(--margin)) / (var(--fr) / 2)) * 1%);
 		}
 
@@ -63,7 +69,8 @@
 				width: calc((100 / var(--fr)) * 1%);
 			}
 
-			.contained {
+			.contained,
+			.margined {
 				/* Without site-wide padding*/
 				width: calc(((100 / var(--fr)) * 1%) - ((var(--margin)) / (var(--fr) / 2)) * 1px);
 
@@ -73,28 +80,101 @@
 		}
 	</style>
 </head>
+
 <body>
 	<div class="container">
-		<div class="box" style="--fr: 1; --color: 149, 214, 141;">Full</div>		
-		<div class="box contained" style="--fr: 1; --color: 149, 214, 141;">Contained</div>		
-		<div class="box contained" style="--fr: 2; --color: 115, 170, 195;">Contained</div>		
-		<div class="box contained" style="--fr: 2; --color: 115, 170, 195;">Contained</div>
-		<div class="box" style="--fr: 2; --color: 115, 170, 195;">Full</div>		
-		<div class="box" style="--fr: 2; --color: 115, 170, 195;">Full</div>		
-		<div class="box contained" style="--fr: 3; --color: 236, 166, 166;">Contained</div>		
-		<div class="box contained" style="--fr: 3; --color: 236, 166, 166;">Contained</div>		
-		<div class="box contained" style="--fr: 3; --color: 236, 166, 166;">Contained</div>		
-		<div class="box" style="--fr: 3; --color: 236, 166, 166;">Full</div>		
-		<div class="box" style="--fr: 3; --color: 236, 166, 166;">Full</div>		
-		<div class="box" style="--fr: 3; --color: 236, 166, 166;">Full</div>		
-		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;">Contained</div>		
-		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;">Contained</div>		
-		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;">Contained</div>		
-		<div class="box contained" style="--fr: 4; --color: 149, 214, 141;">Contained</div>		
-		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>		
-		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>		
-		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>		
-		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>		
+		<script>
+			const items = [
+				{ type: "", fraction: 1, content: "Full", color: "149, 214, 141" },
+				{ type: "contained", fraction: 1, content: "Contained", color: "149, 214, 141" },
+				{ type: "free", fraction: 1, content: "Free", color: "149, 214, 141" },
+				{ type: "", fraction: 2, content: "Full", color: "115, 170, 195" },
+				{ type: "", fraction: 2, content: "Full", color: "115, 170, 195" },
+				{ type: "contained", fraction: 2, content: "Contained", color: "115, 170, 195" },
+				{ type: "contained", fraction: 2, content: "Contained", color: "115, 170, 195" },
+				{ type: "free", fraction: 2, content: "Free", color: "115, 170, 195" },
+				{ type: "free", fraction: 2, content: "Free", color: "115, 170, 195" },
+				{ type: "", fraction: 3, content: "Full", color: "236, 166, 166" },
+				{ type: "", fraction: 3, content: "Full", color: "236, 166, 166" },
+				{ type: "", fraction: 3, content: "Full", color: "236, 166, 166" },
+				{ type: "contained", fraction: 3, content: "Contained", color: "236, 166, 166" },
+				{ type: "contained", fraction: 3, content: "Contained", color: "236, 166, 166" },
+				{ type: "contained", fraction: 3, content: "Contained", color: "236, 166, 166" },
+				{ type: "free", fraction: 3, content: "Free", color: "236, 166, 166" },
+				{ type: "free", fraction: 3, content: "Free", color: "236, 166, 166" },
+				{ type: "free", fraction: 3, content: "Free", color: "236, 166, 166" },
+				{ type: "", fraction: 4, content: "Full", color: "149, 214, 141" },
+				{ type: "", fraction: 4, content: "Full", color: "149, 214, 141" },
+				{ type: "", fraction: 4, content: "Full", color: "149, 214, 141" },
+				{ type: "", fraction: 4, content: "Full", color: "149, 214, 141" },
+				{ type: "contained", fraction: 4, content: "Contained", color: "149, 214, 141" },
+				{ type: "contained", fraction: 4, content: "Contained", color: "149, 214, 141" },
+				{ type: "contained", fraction: 4, content: "Contained", color: "149, 214, 141" },
+				{ type: "contained", fraction: 4, content: "Contained", color: "149, 214, 141" },
+				{ type: "free", fraction: 4, content: "Free", color: "149, 214, 141" },
+				{ type: "free", fraction: 4, content: "Free", color: "149, 214, 141" },
+				{ type: "free", fraction: 4, content: "Free", color: "149, 214, 141" },
+				{ type: "free", fraction: 4, content: "Free", color: "149, 214, 141" },
+			];
+
+			render = () => {
+				const container = document.querySelector(".container");
+
+				let wrapper = document.createElement("div");
+				let wrapperCounter = 0;
+
+				items.map((item) => {
+					if (wrapperCounter === 0) {
+						wrapper = document.createElement("div");
+						wrapper.classList.add("box");
+					}
+
+					let el = document.createElement("div");
+					el.classList.add("box");
+					item.type !== "" ? el.classList.add(item.type) : null;
+					el.setAttribute("style", "--fr: " + item.fraction + "; --color: " + item.color + ";");
+					el.innerHTML = item.content;
+
+					if (item.type !== "contained") {
+						container.append(el);
+					} else {
+						wrapper.append(el);
+						wrapperCounter++;
+
+						if (wrapperCounter === item.fraction) {
+							wrapper.classList.add("contains");
+							container.append(wrapper);
+							wrapperCounter = 0;
+						}
+					}
+				});
+			}
+
+			render();
+		</script>
 	</div>
+	<!-- <div class="container">
+		<div class="box" style="--fr: 1; --color: 149, 214, 141;">Full</div>
+		<div class="box margined" style="--fr: 1; --color: 149, 214, 141;">Margined</div>
+		<div class="box" style="--fr: 2; --color: 115, 170, 195;">Full</div>
+		<div class="box" style="--fr: 2; --color: 115, 170, 195;">Full</div>
+		<div class="box margined" style="--fr: 2; --color: 115, 170, 195;">Margined</div>
+		<div class="box margined" style="--fr: 2; --color: 115, 170, 195;">Margined</div>
+		<div class="box" style="--fr: 3; --color: 236, 166, 166;">Full</div>
+		<div class="box" style="--fr: 3; --color: 236, 166, 166;">Full</div>
+		<div class="box" style="--fr: 3; --color: 236, 166, 166;">Full</div>
+		<div class="box margined" style="--fr: 3; --color: 236, 166, 166;">Margined</div>
+		<div class="box margined" style="--fr: 3; --color: 236, 166, 166;">Margined</div>
+		<div class="box margined" style="--fr: 3; --color: 236, 166, 166;">Margined</div>
+		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>
+		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>
+		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>
+		<div class="box" style="--fr: 4; --color: 149, 214, 141;">Full</div>
+		<div class="box margined" style="--fr: 4; --color: 149, 214, 141;">Margined</div>
+		<div class="box margined" style="--fr: 4; --color: 149, 214, 141;">Margined</div>
+		<div class="box margined" style="--fr: 4; --color: 149, 214, 141;">Margined</div>
+		<div class="box margined" style="--fr: 4; --color: 149, 214, 141;">Margined</div>
+	</div> -->
 </body>
+
 </html>
